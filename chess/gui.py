@@ -16,3 +16,4 @@ IMAGES = {
     for figure in FIGURES
     for color in COLORS
 }
+
