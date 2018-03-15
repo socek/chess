@@ -79,3 +79,18 @@ class TestBoard(object):
             (3, 1),
             (2, 2),
         ]
+
+    def test_cannot_move_outside_of_the_board(self, board):
+        board.start_game()
+
+        black_pawn = board.get_figure(6, 1)
+
+        assert not black_pawn._can_move([], -1, 0)
+        assert not black_pawn._can_move([], 0, -1)
+        assert not black_pawn._can_move([], 8, 0)
+        assert not black_pawn._can_move([], 0, 8)
+        assert not black_pawn._can_attack([], -1, 0)
+        assert not black_pawn._can_attack([], 0, -1)
+        assert not black_pawn._can_attack([], 8, 0)
+        assert not black_pawn._can_attack([], 0, 8)
+        assert black_pawn._can_move([], 5, 5)

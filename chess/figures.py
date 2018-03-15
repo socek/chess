@@ -6,12 +6,16 @@ class Figure(object):
         self.board = board
 
     def _can_move(self, moves, y, x):
+        if y < 0 or y > 7 or x < 0 or x > 7:
+            return False
         if not self.board.get_figure(y, x):
             moves.append((y, x))
             return True
         return False
 
     def _can_attack(self, moves, y, x):
+        if y < 0 or y > 7 or x < 0 or x > 7:
+            return False
         figure = self.board.get_figure(y, x)
         if figure and figure.player != self.player:
             moves.append((y, x))
