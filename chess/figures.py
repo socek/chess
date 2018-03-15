@@ -46,6 +46,24 @@ class Pawn(Figure):
 class Rook(Figure):
     name = 'rook'
 
+    def avalible_moves(self):
+        moves = []
+        current_y, current_x = self.board.get_figure_position(self)
+
+        for move_y, move_x in [(0, 1), (1, 0), (-1, 0), (0, -1)]:
+            possible_y = current_y
+            possible_x = current_x
+
+            while True:
+                possible_y += move_y
+                possible_x += move_x
+
+                if not self._can_move(moves, possible_y, possible_x):
+                    self._can_attack(moves, possible_y, possible_x)
+                    break
+
+        return moves
+
 
 class Knight(Figure):
     name = 'knight'

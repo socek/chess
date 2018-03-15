@@ -64,8 +64,7 @@ class TestBoard(object):
         board.move_figure(black_pawn, 2, 1)
 
         pawn = board.get_figure(1, 1)
-        assert pawn.avalible_moves() == [
-        ]
+        assert pawn.avalible_moves() == []
 
     def test_avalible_moves_for_pawn_4(self, board):
         board.start_game()
@@ -94,3 +93,48 @@ class TestBoard(object):
         assert not black_pawn._can_attack([], 8, 0)
         assert not black_pawn._can_attack([], 0, 8)
         assert black_pawn._can_move([], 5, 5)
+
+    def test_rook_move_1(self, board):
+        board.start_game()
+
+        rook = board.get_figure(0, 0)
+
+        assert rook.avalible_moves() == []
+
+    def test_rook_move_2(self, board):
+        board.start_game()
+
+        pawn = board.get_figure(1, 0)
+        rook = board.get_figure(0, 0)
+
+        board.move_figure(pawn, 2, 1)
+
+        assert rook.avalible_moves() == [
+            (1, 0),
+            (2, 0),
+            (3, 0),
+            (4, 0),
+            (5, 0),
+            (6, 0),
+        ]
+
+    def test_rook_move_3(self, board):
+        board.start_game()
+
+        rook = board.get_figure(0, 0)
+
+        board.move_figure(rook, 5, 1)
+
+        assert rook.avalible_moves() == [
+            (5, 2),
+            (5, 3),
+            (5, 4),
+            (5, 5),
+            (5, 6),
+            (5, 7),
+            (6, 1),
+            (4, 1),
+            (3, 1),
+            (2, 1),
+            (5, 0)
+        ]
