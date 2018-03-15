@@ -11,4 +11,14 @@ class Board(object):
             player.start_game(self)
 
     def put_figure(self, figure, y, x):
+        figure.set_board(self)
         self.board[y][x] = figure
+
+    def get_figure(self, y, x):
+        return self.board[y][x]
+
+    def get_figure_position(self, figure):
+        for y, line in enumerate(self.board):
+            for x, obj in enumerate(line):
+                if figure == obj:
+                    return y, x

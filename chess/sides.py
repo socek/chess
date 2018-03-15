@@ -28,6 +28,7 @@ class White(Player):
     figuresline = 0
     queen_place = 3
     king_place = 4
+    direction = 1
 
 
 class Black(Player):
@@ -36,3 +37,4 @@ class Black(Player):
     figuresline = 7
     queen_place = 4
     king_place = 3
+    direction = -1

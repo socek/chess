@@ -108,3 +108,4 @@ ENV/
 *sublime-*
 _build
 venv_*
+.pytest_cache

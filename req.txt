@@ -1,0 +1,6 @@
+attrs==17.4.0
+-e git+git@github.com:socek/chess.git@3e40254a37e15a428e0cd4825fce7422a5cd1d67#egg=chess
+pluggy==0.6.0
+py==1.5.2
+pytest==3.4.2
+six==1.11.0

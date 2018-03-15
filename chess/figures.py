@@ -2,26 +2,29 @@ class Figure(object):
     def __init__(self, player):
         self.player = player
 
+    def set_board(self, board):
+        self.board = board
+
 
 class Pawn(Figure):
-    pass
+    name = 'pawn'
 
 
 class Rook(Figure):
-    pass
+    name = 'rook'
 
 
 class Knight(Figure):
-    pass
+    name = 'knight'
 
 
 class Bishop(Figure):
-    pass
+    name = 'bishop'
 
 
 class Queen(Figure):
-    pass
+    name = 'queen'
 
 
 class King(Figure):
-    pass
+    name = 'king'
