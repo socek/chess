@@ -106,3 +106,4 @@ ENV/
 .mypy_cache/
 *sublime-*
 _build
+venv_*
