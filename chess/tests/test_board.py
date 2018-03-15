@@ -36,3 +36,46 @@ class TestBoard(object):
             figure = board.get_figure(player.figuresline, index)
             figure.name == figure_name
             assert figure.player == player
+
+    def test_avalible_moves_for_pawn(self, board):
+        board.start_game()
+
+        pawn = board.get_figure(1, 1)
+        assert pawn.avalible_moves() == [
+            (2, 1),
+            (3, 1),
+        ]
+
+    def test_avalible_moves_for_pawn_2(self, board):
+        board.start_game()
+
+        black_pawn = board.get_figure(6, 1)
+        board.move_figure(black_pawn, 3, 1)
+
+        pawn = board.get_figure(1, 1)
+        assert pawn.avalible_moves() == [
+            (2, 1),
+        ]
+
+    def test_avalible_moves_for_pawn_3(self, board):
+        board.start_game()
+
+        black_pawn = board.get_figure(6, 1)
+        board.move_figure(black_pawn, 2, 1)
+
+        pawn = board.get_figure(1, 1)
+        assert pawn.avalible_moves() == [
+        ]
+
+    def test_avalible_moves_for_pawn_4(self, board):
+        board.start_game()
+
+        black_pawn = board.get_figure(6, 1)
+        board.move_figure(black_pawn, 2, 2)
+
+        pawn = board.get_figure(1, 1)
+        assert pawn.avalible_moves() == [
+            (2, 1),
+            (3, 1),
+            (2, 2),
+        ]

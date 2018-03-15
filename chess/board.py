@@ -22,3 +22,9 @@ class Board(object):
             for x, obj in enumerate(line):
                 if figure == obj:
                     return y, x
+
+    def move_figure(self, figure, y, x):
+        current_y, current_x = self.get_figure_position(figure)
+
+        self.board[current_y][current_x] = None
+        self.board[y][x] = figure
