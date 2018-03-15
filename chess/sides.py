@@ -35,6 +35,6 @@ class Black(Player):
     color = 'black'
     pawnline = 6
     figuresline = 7
-    queen_place = 4
-    king_place = 3
+    queen_place = 3
+    king_place = 4
     direction = -1

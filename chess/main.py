@@ -1,11 +1,15 @@
-import pyglet
-import gui
+from chess.board import Board
+from chess.gui import Gui
 
 
 def run():
-    window = pyglet.window.Window()
+    board = Board()
+    board.start_game()
 
-    @window.event
-    def on_draw():
-        window.clear()
-        # yolo
+    gui = Gui(board)
+    gui.load_images()
+    gui.run()
+
+
+if __name__ == "__main__":
+    run()
